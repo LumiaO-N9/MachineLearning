@@ -10,7 +10,7 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
-test/*
+
 
 # Generated files
 .idea/**/contentModel.xml
@@ -218,3 +218,6 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 
+# User Costume
+test/*
+*.txt
