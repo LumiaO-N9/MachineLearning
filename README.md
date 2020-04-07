@@ -5,7 +5,7 @@
 
 运行步骤：
 * 1、pull源码
-* 2、测试数据均未解压，需手动解压
+* 2、测试数据均未解压，需进入章节目录下的data文件夹内手动解压
 * 3、安装pipenv ```pip install pipenv```
 * 4、进入Pipfile目录，运行```pipenv install```，即可安装所需依赖
 * 5、运行代码
