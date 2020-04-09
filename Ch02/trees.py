@@ -88,7 +88,6 @@ def majorityCnt(classList):
 
 # 构建树
 def createTree(dataSet, labels):
-    print(dataSet)
     # 取最后一列
     classList = [example[-1] for example in dataSet]
     # 如果当前集合中的所有元素都属于一种类别则可直接确定当前类别
