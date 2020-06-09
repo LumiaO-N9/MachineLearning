@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from Ch01 import kNN
+from KNN import kNN
 from numpy import array
 
 datingDataMat, datingLabels = kNN.file2matrix("../data/datingTestData/datingTestSet2.txt")

@@ -1,7 +1,7 @@
 from os import listdir
 
 from numpy import *
-from Ch01.kNN import classify0
+from KNN.kNN import classify0
 
 
 # 图片都是32*32的，每个像素都用0或1表示

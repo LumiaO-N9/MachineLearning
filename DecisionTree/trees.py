@@ -1,5 +1,5 @@
 from math import log
-from Ch02.draw.treePlotter import createPlot
+from DecisionTree.draw.treePlotter import createPlot
 
 
 # 创建数据集

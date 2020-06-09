@@ -1,5 +1,5 @@
 from numpy import *
-from Ch01.kNN import classify0
+from KNN.kNN import classify0
 
 
 # 把文件转换成矩阵
