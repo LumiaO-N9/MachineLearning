@@ -114,14 +114,14 @@ def createTree(dataSet, labels):
 
 
 # 通过序列化存储决策树
-def storeTree(inputTree, filename="treeStored/classifierStorage.txt"):
+def storeTree(inputTree, filename="treeStored/classifierStorage.tree"):
     import pickle
     with open(filename, 'wb') as fw:
         pickle.dump(inputTree, fw)
 
 
 # 通过反序列化读取决策树
-def grabTree(filename="treeStored/classifierStorage.txt"):
+def grabTree(filename="treeStored/classifierStorage.tree"):
     import pickle
     with open(filename, 'rb') as fr:
         return pickle.load(fr)
