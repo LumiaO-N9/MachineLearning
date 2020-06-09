@@ -1,4 +1,5 @@
 from math import log
+from Ch02.draw.treePlotter import createPlot
 
 
 # 创建数据集
@@ -37,7 +38,7 @@ def splitDataSet(dataSet, axis, value):
     for featVec in dataSet:
         if featVec[axis] == value:
             # 取轴线前的数据
-            # 因为是第一次取，可以直接 =
+            # 因为是第一次取，可以直接 = ，否则需要使用extend
             reducedFeatVec = featVec[:axis]
             # 取轴线后的数据
             # 两个list合并需使用exteng 或者 +
@@ -81,7 +82,8 @@ def majorityCnt(classList):
         if vote not in classCount.keys():
             classCount[vote] = 0
         classCount[vote] += 1
-    # 使用sorted函数，借助lambda表达式按字典的value 排序
+    # 使用sorted函数，借助lambda表达式按字典的value 排序 会返回一个 tuple组成的list，
+    # 例如：有一个字典 {'a': 2, 'b': 1, 'c': 3} sorted后返回 [('c', 3), ('a', 2), ('b', 1)]
     sortedClassCount = sorted(classCount.items(), key=lambda x: x[1], reverse=True)
     return sortedClassCount[0][0]
 
@@ -109,3 +111,35 @@ def createTree(dataSet, labels):
         subLabels = labels[:]
         myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)
     return myTree
+
+
+# 通过序列化存储决策树
+def storeTree(inputTree, filename="treeStored/classifierStorage.txt"):
+    import pickle
+    with open(filename, 'wb') as fw:
+        pickle.dump(inputTree, fw)
+
+
+# 通过反序列化读取决策树
+def grabTree(filename="treeStored/classifierStorage.txt"):
+    import pickle
+    with open(filename, 'rb') as fr:
+        return pickle.load(fr)
+
+
+# 从实验数据构建并绘制决策树
+def createTreeFromData(filename="data/lenses.txt"):
+    with open(filename) as fr:
+        lenses = [inst.strip().split('\t') for inst in fr.readlines()]
+        lensesLabels = ['age', 'prescript', 'astigmatic', 'tearRate']
+        lensesTree = createTree(lenses, lensesLabels)
+        print("直接构建的决策树：")
+        print(lensesTree)
+        storeTree(lensesTree)
+        restoredTree = grabTree()
+        print("从文件恢复的决策树：")
+        print(restoredTree)
+        createPlot(restoredTree)
+
+
+createTreeFromData()
