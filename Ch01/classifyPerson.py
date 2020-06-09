@@ -58,3 +58,6 @@ def classifyPerson():
     inArr = array([ffMiles, percentTats, iceCream])
     classifierResult = classify0((inArr - minVals) / ranges, normMat, datingLabels, 3)
     print("You will probably like this person:", resultList[int(classifierResult) - 1])
+
+
+classifyPerson()
