@@ -221,3 +221,4 @@ pip-selfcheck.json
 # User Costume
 test/*
 *.txt
+!/Ch02/treeStored/classifierStorage.tree
