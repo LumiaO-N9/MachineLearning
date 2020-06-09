@@ -7,11 +7,11 @@ from Ch01.kNN import classify0
 # 图片都是32*32的，每个像素都用0或1表示
 def img2vector(filename):
     returnVect = zeros((1, 1024))
-    fr = open(filename)
-    for i in range(32):
-        lineStr = fr.readline()
-        for j in range(32):
-            returnVect[0, 32 * i + j] = int(lineStr[j])
+    with open(filename) as fr:
+        for i in range(32):
+            lineStr = fr.readline()
+            for j in range(32):
+                returnVect[0, 32 * i + j] = int(lineStr[j])
     return returnVect
 
 

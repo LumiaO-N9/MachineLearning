@@ -4,22 +4,22 @@ from Ch01.kNN import classify0
 
 # 把文件转换成矩阵
 def file2matrix(filename):
-    fr = open(filename)
-    arrayOfLines = fr.readlines()
-    numberOfLines = len(arrayOfLines)
-    # zeros 生成numberOfLines行*3列，值都为0的矩阵
-    returnMat = zeros((numberOfLines, 3))
-    classLabelVector = []
-    index = 0
-    for line in arrayOfLines:
-        line = line.strip()
-        listFromLine = line.split('\t')
-        # "index,"表示一个tuple，代表一个array的第几行第几行
-        # 这在Python的list中是不支持的
-        returnMat[index, :] = listFromLine[0:3]
-        classLabelVector.append(listFromLine[-1])
-        index += 1
-    return returnMat, classLabelVector
+    with open(filename) as fr:
+        arrayOfLines = fr.readlines()
+        numberOfLines = len(arrayOfLines)
+        # zeros 生成numberOfLines行*3列，值都为0的矩阵
+        returnMat = zeros((numberOfLines, 3))
+        classLabelVector = []
+        index = 0
+        for line in arrayOfLines:
+            line = line.strip()
+            listFromLine = line.split('\t')
+            # "index,"表示一个tuple，代表一个array的第几行第几行
+            # 这在Python的list中是不支持的
+            returnMat[index, :] = listFromLine[0:3]
+            classLabelVector.append(listFromLine[-1])
+            index += 1
+        return returnMat, classLabelVector
 
 
 # 归一化数值
