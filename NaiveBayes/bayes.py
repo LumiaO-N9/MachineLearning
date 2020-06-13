@@ -13,12 +13,14 @@ def loadDataSet():
     classVec = [0, 1, 0, 1, 0, 1]
     return postingList, classVec
 
+
 # 自定义的一个单词集合
 def loadDataSet2():
     postingList = [
-        ['a', 'b', 'c', 'd', 'e'],
-        ['b', 'c', 'f', 'g', 'h']
+        ['a', 'b', 'c', 'd', 'e'],  # 类别为0
+        ['b', 'c', 'f', 'g', 'h']  # 类别为1
     ]
+    # ['a','d','c','e','h','k']
     classVec = [0, 1]
     return postingList, classVec
 
@@ -239,5 +241,18 @@ def testBayesFromRSS():
     getTopWords(milwaukee, la_lakers)
 
 
+def testMyOwnSet():
+    # a 代表输入数据集，b 代表 类别
+    a, b = loadDataSet2()
+    c = ['a','d','c','e','h','k']
+    my = createVocabList(a)
+    trainMat = []
+    for i in a:
+        trainMat.append(setOfWords2Vec(my, i))
+    p0, p1, pAb = trainNB0(trainMat, b)
+    print('对C分类的结果为', classifyNB(array(setOfWords2Vec(my,c)), p0, p1, pAb))
+
+
 if __name__ == '__main__':
-    testBayesFromRSS()
+    testMyOwnSet()
+    # testBayesFromRSS()
