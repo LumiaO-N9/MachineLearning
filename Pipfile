@@ -8,6 +8,7 @@ name = "pypi"
 [packages]
 numpy = "*"
 matplotlib = "*"
+feedparser = "*"
 
 [requires]
 python_version = "3.7"
