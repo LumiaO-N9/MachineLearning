@@ -1,4 +1,4 @@
-from numpy import exp, mat, shape, ones, array, arange, random
+from numpy import exp, mat, shape, ones, array, arange, random, seterr
 
 
 # 加载测试数据集
@@ -79,7 +79,7 @@ def stocGradAscent1(dataMatrix, classLabels, numIter=150):
     m, n = shape(dataMatrix)
     weights = ones(n)  # initialize to all ones
     for j in range(numIter):
-        dataIndex = range(m)
+        dataIndex = list(range(m))
         for i in range(m):
             alpha = 4 / (1.0 + j + i) + 0.0001  # apha decreases with iteration, does not
             randIndex = int(random.uniform(0, len(dataIndex)))  # go to 0 because of the constant
@@ -138,4 +138,6 @@ def multiTest():
 
 
 if __name__ == '__main__':
+    # 忽略在计算InX的时候 X太小导致的overflow
+    seterr(all='ignore')
     multiTest()
