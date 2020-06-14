@@ -60,4 +60,5 @@ def classifyPerson():
     print("You will probably like this person:", resultList[int(classifierResult) - 1])
 
 
-classifyPerson()
+if __name__ == '__main__':
+    classifyPerson()

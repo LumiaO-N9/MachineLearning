@@ -48,4 +48,5 @@ def handwritingClassTest():
     print("the total error rate is : %f" % (errorCount / testFilesCount))
 
 
-handwritingClassTest()
+if __name__ == '__main__':
+    handwritingClassTest()

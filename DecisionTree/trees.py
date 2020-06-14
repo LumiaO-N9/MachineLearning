@@ -142,4 +142,5 @@ def createTreeFromData(filename="data/lenses.txt"):
         createPlot(restoredTree)
 
 
-createTreeFromData()
+if __name__ == '__main__':
+    createTreeFromData()

@@ -244,15 +244,17 @@ def testBayesFromRSS():
 def testMyOwnSet():
     # a 代表输入数据集，b 代表 类别
     a, b = loadDataSet2()
-    c = ['a','d','c','e','h','k']
+    c = ['a', 'd', 'c', 'e', 'h', 'k']
     my = createVocabList(a)
     trainMat = []
     for i in a:
         trainMat.append(setOfWords2Vec(my, i))
     p0, p1, pAb = trainNB0(trainMat, b)
-    print('对C分类的结果为', classifyNB(array(setOfWords2Vec(my,c)), p0, p1, pAb))
+    print('对C分类的结果为', classifyNB(array(setOfWords2Vec(my, c)), p0, p1, pAb))
 
 
 if __name__ == '__main__':
+    # 自定义程序测试
     testMyOwnSet()
+    # RSS源测试
     # testBayesFromRSS()
