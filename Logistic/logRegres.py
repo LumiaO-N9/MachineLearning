@@ -137,7 +137,14 @@ def multiTest():
     print("after %d iterations the average error rate is: %f" % (numTests, errorSum / float(numTests)))
 
 
+def testNew():
+    dataArr, labelMat = loadDataSet()
+    weight = stocGradAscent1(array(dataArr), labelMat, 500)
+    plotBestFit(weight)
+
+
 if __name__ == '__main__':
     # 忽略在计算InX的时候 X太小导致的overflow
     seterr(all='ignore')
-    multiTest()
+    # multiTest()
+    testNew()

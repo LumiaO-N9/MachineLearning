@@ -255,6 +255,8 @@ def testMyOwnSet():
 
 if __name__ == '__main__':
     # 自定义程序测试
-    testMyOwnSet()
+    # testMyOwnSet()
+    # 垃圾邮件测试
+    # spamTest()
     # RSS源测试
-    # testBayesFromRSS()
+    testBayesFromRSS()
